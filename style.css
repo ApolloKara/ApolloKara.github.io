@@ -1,0 +1,158 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+h1 {
+  text-align: center;
+  color: #a79277;
+  font-size: 50px;
+}
+
+h2 {
+  color: #a79277;
+}
+
+p {
+  color: #a79277;
+}
+
+body {
+  background-color: #fff2e1;
+}
+
+button {
+  text-align: center;
+}
+
+div {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+}
+.logoDiv {
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.logoHeader {
+  padding-bottom: 1vh;
+  background: linear-gradient(to bottom, #dac7ac, #ead8c0);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  width: clamp(75px, 11%, 400px);
+  height: auto;
+  margin: 1vh;
+}
+
+.date {
+  position: absolute;
+  left: 10%;
+
+  color: #a79277;
+  font-size: 3vh;
+  margin-top: 1vh;
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 100%;
+  background: linear-gradient(to bottom, #ead8c0, #fff2e1);
+  margin-bottom: 2vh;
+}
+
+.headerText {
+  color: #a79277;
+  font-size: clamp(0.75rem, 4vh, 7rem);
+  margin-left: clamp(5px, 15px, 25px);
+  margin-right: clamp(5px, 15px, 25px);
+  text-decoration: none;
+}
+
+.activePage {
+  color: #a79277;
+  font-weight: bold;
+}
+
+.headerButtons {
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.socials {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  height: 7vh;
+}
+
+.socialsText {
+  font-size: 9vh;
+}
+
+.socialsArray {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgLink {
+  width: 12vh;
+  fill: #dac7ac;
+  width: 75px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.footer {
+  display: flex;
+  background-color: #ead8c0;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Makes sure absolute elements are positioned within */
+  padding: 20px 0; /* Adds some spacing */
+}
+
+.footerText {
+  position: relative;
+  margin-top: 10px;
+  color: #a79277;
+  font-size: 0.5 rem;
+  text-align: center;
+}
+
+.policies {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.policiesText {
+  color: #a79277;
+  font-size: clamp(1rem, 3vh, 7rem);
+  text-align: center;
+  margin: 10px 0;
+  text-decoration: none;
+}
