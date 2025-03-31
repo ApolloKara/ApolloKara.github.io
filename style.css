@@ -1,0 +1,446 @@
+/*Fonts*/
+@font-face {
+  font-family: "Gladolia";
+  src: url("Fonts/Gladolia.woff2") format("woff2"),
+    url("Fonts/Gladolia.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GladoliaShadow";
+  src: url("Fonts/GladoliaShadow.woff2") format("woff2"),
+    url("Fonts/GladoliaShadow.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*General Stuff*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #a79277;
+  font-size: 50px;
+}
+
+h2,
+h3,
+p {
+  color: #a79277;
+}
+
+body {
+  background-color: #fff2e1;
+}
+
+.imgLink {
+  width: 12vh;
+  fill: #dac7ac;
+  width: 75px;
+  height: auto;
+  margin-left: 20px;
+}
+
+div {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+}
+/*Logo*/
+
+/*Multi-Page Things*/
+
+.logoDiv {
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.logoHeader {
+  padding-bottom: 1vh;
+  background: linear-gradient(to bottom, #dac7ac, #ead8c0);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: clamp(75px, 11%, 400px);
+  height: auto;
+  margin: 1vh;
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+  background: linear-gradient(to bottom, #ead8c0, #fff2e1);
+  margin-bottom: 2vh;
+}
+
+.headerText {
+  color: #a79277;
+  font-size: 4vh;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-decoration: none;
+  font-family: "Gladolia";
+}
+
+.activePage {
+  color: #a79277;
+  font-size: 5.5vh;
+}
+
+.headerButtons {
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.socials {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  height: 7vh;
+}
+
+.socialsText {
+  font-size: 9vh;
+}
+
+.socialsArray {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Bottom of Pages*/
+.footer {
+  margin-top: 300px;
+  display: flex;
+  background-color: #ead8c0;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.footerText {
+  position: relative;
+  margin-top: 10px;
+  color: #a79277;
+  font-size: 0.5 rem;
+  text-align: center;
+}
+
+.policies {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.policiesText {
+  color: #a79277;
+  font-size: 3vh;
+  text-align: center;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.acknowledgement {
+  align-items: center;
+  justify-content: center;
+  background-color: #ead8c0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.acknowledgementText {
+  font-size: 13px;
+  text-align: center;
+}
+
+/*General Headers*/
+
+.pageHeader {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pageHeaderText {
+  font-size: 70px;
+}
+
+.subHeader {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.lineup {
+  height: 580px;
+  flex-direction: column;
+}
+
+.lineupImg {
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.lineupText {
+  font-size: 25px;
+  text-align: center;
+  margin-right: 448px;
+  margin-left: 150px;
+}
+
+.artists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.venueInfo {
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  margin-top: 0px;
+}
+
+.venueText {
+  text-align: center;
+  font-size: 30px;
+}
+
+.mapDiv {
+  align-items: center;
+  justify-content: center;
+}
+
+.mapEmbed {
+  border: 3px solid #a79277 !important; /* Width, style, and color */
+  border-radius: 10px;
+}
+
+.content {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.aboutText {
+  font-size: 25px;
+  text-align: center;
+}
+
+.subSubHeader {
+  font-size: 30px;
+}
+
+.aboutHeader {
+  margin-bottom: 50px;
+}
+
+.lineDiv {
+  display: flex;
+  align-items: flex-start; /* so tall content lines up at the top */
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px; /* Optional: to stop it going super wide */
+  margin: 0 auto; /* center the whole container */
+  padding: 50px 20px; /* spacing around it */
+}
+
+.leftContent,
+.rightContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.verticalLine {
+  height: 535px;
+  border-left: 2.5px solid #a79277;
+  margin: 0 40px;
+}
+
+.leftContent {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.rightContent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligns the content at the top */
+  padding: 20px;
+}
+
+/* Ticket Purchase Layout */
+.ticket-purchase-container {
+  background-color: #f4e5cc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Adjust this as per your design */
+  margin-bottom: 30px; /* Space between ticket purchase section and others */
+}
+
+.ticket-title {
+  color: #a79277;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ticket-form label {
+  font-size: 16px;
+  color: #976334;
+}
+
+.ticket-form input,
+.ticket-form select {
+  padding: 10px;
+  border: 1px solid #a79277;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #354f32;
+}
+
+.ticket-form input[type="number"] {
+  width: 60px; /* Make quantity input smaller */
+}
+
+.purchase-button {
+  background-color: #a79277;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.purchase-button:hover {
+  background-color: #976334;
+}
+
+/* Container for ticket purchase and other sections in a column */
+.purchase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.postDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.socialPostInsta {
+  height: 600px;
+  width: 420px;
+  margin-right: 75px;
+  margin-left: 75px;
+}
+.socialPostFacebook {
+  height: 600px;
+  width: 390px;
+  margin-right: 75px;
+  margin-left: 75px;
+}
+
+.privacy-policy-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff2e1;
+}
+
+.privacy-policy-header {
+  font-family: "Gladolia", sans-serif;
+  color: #a79277;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.privacy-policy-section-title {
+  font-family: "Gladolia", sans-serif;
+  color: #976334;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.privacy-policy-text {
+  color: #354f32;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+body {
+  padding: 0; /* Ensuring no padding on body */
+}

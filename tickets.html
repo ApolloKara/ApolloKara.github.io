@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets</title>
+    <link rel="icon" type="image/x-icon" href="/images/LogoFinal.ico" />
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="this.rel='stylesheet'" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="slideshow.css" />
+    <link rel="stylesheet" href="accordion.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Knewave&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="logoHeader">
+      <div class="logoDiv">
+        <img
+          class="logo"
+          src="Images/LogoFinal.png"
+          alt="Fiddle & Fern Festival Logo" />
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="headerButtons">
+        <a class="headerText" href="index.html">Home</a>
+        <a class="headerText" href="lineup.html">Lineup</a>
+        <a class="headerText" href="venue.html">Venue</a>
+        <a class="headerText activePage" href="tickets.html">Tickets</a>
+        <a class="headerText" href="about.html">About</a>
+        <a class="headerText" href="FAQ.html">FAQ</a>
+      </div>
+    </div>
+
+    <div class="slide-container">
+      <div class="img-container">
+        <img src="Images/Slideshow/Slideshow 1.webp" alt="" />
+        <img src="Images/Slideshow/Slideshow 2.webp" alt="" />
+        <img src="Images/Slideshow/Slideshow 3.webp" alt="" />
+      </div>
+    </div>
+
+    <div class="lineDiv">
+      <div class="leftContent">
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">Accessibility</div>
+            <div class="faq-answer">
+              Yes! Fiddle & Fern is committed to inclusivity. The venue has
+              accessible parking, smooth pathways, and wheelchair-accessible
+              facilities. If you require additional assistance or have specific
+              needs, please reach out to our team in advance so we can help make
+              your experience as enjoyable as possible.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Important Information</div>
+            <div class="faq-answer">
+              All tickets to Fiddle & Fern are digital and must be presented at
+              the gate, either on your phone or printed. Tickets are
+              non-refundable, but they can be transferred to another person. If
+              the event is postponed, your ticket will remain valid for the new
+              date. Children under 12 enter free with a ticket-holding adult.
+              Make sure to purchase tickets only through our official website or
+              trusted partners to avoid scams.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="verticalLine"></div>
+
+      <div class="rightContent">
+        <div class="ticket-purchase-container">
+          <h3 class="ticket-title">Purchase Your Tickets</h3>
+
+          <form class="ticket-form">
+            <label for="ticket-type">Ticket Type:</label>
+            <select id="ticket-type" name="ticket-type">
+              <option value="general">General Admission</option>
+              <option value="vip">VIP</option>
+              <option value="child">Child (Under 12)</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              value="1" />
+
+            <label for="name">Full Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              required />
+
+            <label for="email">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required />
+
+            <button type="submit" class="purchase-button">
+              Purchase Tickets
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="policies">
+        <a class="policiesText" href="privacyPolicy.html">Privacy Policy</a>
+        <a class="policiesText" href="terms.html">Terms and Conditions</a>
+      </div>
+      <p class="footerText">© A. Karakaidos 2025</p>
+    </div>
+    <div class="acknowledgement">
+      <p class="acknowledgementText">
+        We acknowledge the traditional custodians of this land, the Wurundjeri
+        People of the Kulin Nation. We pay our respects to their Elders, past,
+        present, and emerging, who hold the knowledge, wisdom, and traditions of
+        this land. The Wurundjeri people have long practiced ancient customs,
+        including ceremonies, storytelling, dance, music, and celebration, all
+        of which are a vital part of their connection to the land. In the Spirit
+        of Harmony, we look forward to living together with respect,
+        responsibility, resilience, and reciprocity.
+      </p>
+    </div>
+    <script src="slideshow.js"></script>
+    <script src="accordion.js"></script>
+  </body>
+</html>
