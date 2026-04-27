@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RSVP Reader</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0e10;
+    --surface: #17171a;
+    --surface2: #1f1f23;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8e8e6;
+    --muted: #6b6b72;
+    --accent: #e8533a;
+    --accent2: #f0a070;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  textarea {
+    width: 100%;
+    height: 140px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 14px 16px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  textarea::placeholder { color: var(--muted); }
+  textarea:focus { border-color: rgba(255,255,255,0.2); }
+
+  .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .speed-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .speed-label b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  input[type=range] {
+    flex: 1;
+    min-width: 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2px;
+    background: var(--surface2);
+    border-radius: 2px;
+    outline: none;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+
+  input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: #d44530; }
+
+  .btn-ghost {
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  #display-area {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reader-box {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .orp-guide {
+    width: 1px;
+    height: 28px;
+    background: var(--accent);
+    opacity: 0.3;
+    border-radius: 1px;
+    margin-bottom: -1.5rem;
+  }
+
+  #word-display {
+    font-family: var(--mono);
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    text-align: center;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  #word-display .before { color: var(--muted); }
+  #word-display .focus  { color: var(--accent); }
+  #word-display .after  { color: var(--muted); }
+
+  .progress-track {
+    width: 100%;
+    height: 2px;
+    background: var(--surface2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  #progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.15s linear;
+  }
+
+  .reader-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .word-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: -0.5rem;
+  }
+
+  .word-count b { color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><span>RSVP</span> — speed reader</div>
+
+  <div id="input-view">
+    <textarea id="text-input" placeholder="Paste your text here…"></textarea>
+    <div class="controls-row">
+      <span class="speed-label">Speed: <b id="wpm-label">300</b> wpm</span>
+      <input type="range" id="wpm-slider" min="100" max="1000" step="50" value="300" />
+      <button class="btn btn-primary" onclick="startReading()">Start</button>
+    </div>
+  </div>
+
+  <div id="display-area">
+    <div class="reader-box">
+      <div class="orp-guide"></div>
+      <div id="word-display">
+        <span class="before"></span><span class="focus"></span><span class="after"></span>
+      </div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <div class="reader-controls">
+        <button class="btn btn-ghost" id="pause-btn" onclick="togglePause()">Pause</button>
+        <button class="btn btn-ghost" onclick="stopReading()">Stop</button>
+        <span class="speed-label" style="margin-left:8px;"><b id="wpm-label2">300</b> wpm</span>
+        <input type="range" id="wpm-slider2" min="100" max="1000" step="50" value="300" style="width:100px;" oninput="updateSpeed(this.value)" />
+      </div>
+    </div>
+    <div class="word-count" style="margin-top:1rem;">Word <b id="word-index">0</b> of <b id="word-total">0</b></div>
+  </div>
+</div>
+
+<script>
+  let words = [], currentIndex = 0, timer = null, paused = false, wpm = 300;
+
+  document.getElementById('wpm-slider').addEventListener('input', function() {
+    wpm = parseInt(this.value);
+    document.getElementById('wpm-label').textContent = wpm;
+  });
+
+  function getORP(word) {
+    const len = word.length;
+    if (len <= 1) return 0;
+    if (len <= 5) return 1;
+    if (len <= 9) return 2;
+    return 3;
+  }
+
+  function renderWord(word) {
+    const orp = getORP(word);
+    document.querySelector('#word-display .before').textContent = word.slice(0, orp);
+    document.querySelector('#word-display .focus').textContent = word[orp];
+    document.querySelector('#word-display .after').textContent = word.slice(orp + 1);
+  }
+
+  function startReading() {
+    const text = document.getElementById('text-input').value.trim();
+    if (!text) return;
+    words = text.split(/\s+/).filter(Boolean);
+    currentIndex = 0;
+    paused = false;
+    document.getElementById('word-total').textContent = words.length;
+    document.getElementById('input-view').style.display = 'none';
+    document.getElementById('display-area').style.display = 'flex';
+    document.getElementById('wpm-slider2').value = wpm;
+    document.getElementById('wpm-label2').textContent = wpm;
+    scheduleNext();
+  }
+
+  function scheduleNext() {
+    if (currentIndex >= words.length) { stopReading(); return; }
+    const word = words[currentIndex];
+    renderWord(word);
+    document.getElementById('word-index').textContent = currentIndex + 1;
+    document.getElementById('progress-bar').style.width = Math.round((currentIndex / words.length) * 100) + '%';
+    const delay = Math.round(60000 / wpm);
+    const extra = word.length > 8 ? delay * 0.3 : (word.match(/[.,!?;:]$/) ? delay * 0.5 : 0);
+    currentIndex++;
+    timer = setTimeout(scheduleNext, delay + extra);
+  }
+
+  function togglePause() {
+    if (paused) {
+      paused = false;
+      document.getElementById('pause-btn').textContent = 'Pause';
+      scheduleNext();
+    } else {
+      paused = true;
+      clearTimeout(timer);
+      document.getElementById('pause-btn').textContent = 'Resume';
+    }
+  }
+
+  function stopReading() {
+    clearTimeout(timer);
+    document.getElementById('display-area').style.display = 'none';
+    document.getElementById('input-view').style.display = 'block';
+    document.getElementById('progress-bar').style.width = '0%';
+  }
+
+  function updateSpeed(val) {
+    wpm = parseInt(val);
+    document.getElementById('wpm-label2').textContent = wpm;
+  }
+</script>
+</body>
+</html>
